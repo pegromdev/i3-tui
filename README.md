@@ -1,3 +1,4 @@
+![i3-tui-alpha](https://user-images.githubusercontent.com/88956717/133030231-5f6787e1-4a46-425a-bb27-c6d3087f0039.png)
 
 # MEET I3-TUI
 ## The Fisrt GUI Free EndevourOS Community Edition 
