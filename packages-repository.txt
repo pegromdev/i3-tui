@@ -1,0 +1,10 @@
+i3-gaps
+i3lock
+feh
+fzf
+kitty
+dmenu
+rofi
+polybar
+zsh
+

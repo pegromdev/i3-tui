@@ -1,0 +1,9 @@
+#!/bin/bash
+# this is call within i3 to avoid conflict with i3status
+
+if pgrep -x "newsboat" > /dev/null
+then
+	pkill newsboat
+else
+	newsboat -q
+fi

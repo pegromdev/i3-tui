@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+# rofi-shortcuts
+# Easy acces your own database of your custom shortcuts
+
+# your database location
+grep -v "#" -h /home/niko/.config/keysDB/active/* | 
+	# use your favorite tool like awk if you prefer
+	column -t -s"~" -c 90 -N Name,Key,Action |
+	# dmenu can be used to
+	rofi\
+		# Fonts
+		-font "dejavu sans mono 10"\
+		# screen width
+ 		-width 80\
+		# menu location, 1, 2, 3, 4 etc
+ 		-location 2\
+ 		-dmenu\
+ 		-i\
+ 		-p 'Shortcutsuts'\
+ 		-hide-scrollbar
+

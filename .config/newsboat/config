@@ -1,0 +1,86 @@
+# maintainer: nicolas villafan <pegromdev@gmail.com>prepopulate-query-feeds yes
+# The path where articles shall be saved to.
+
+save-path ~/Downloads/
+# Disable keymap hints on the bottom of screen.
+show-keymap-hint yes
+notify-always yes
+#notify-program "notify-send"
+notify-program "/home/niko/.scripts/apps/newsboat/mewsstatus"
+# Set format string that is used for formatting notifications.
+notify-format "%n unread articles"
+
+
+#show-read-feeds no
+auto-reload no
+reload-threads 8
+max-items 500
+player mpv
+external-url-viewer "urlscan -dc -r 'linkhandler {}'"
+# hide articles matching: ---------------------------------------------
+
+ignore-article "*" "title =~ \"Sponsor\""
+ignore-article "*" "title =~ \"Advertisement\""
+ignore-mode "display"
+
+# Vim like scroll before end
+scrolloff 10
+
+
+bind-key j down
+bind-key k up
+bind-key j next articlelist
+bind-key k prev articlelist
+bind-key J next-feed articlelist
+bind-key K prev-feed articlelist
+bind-key G end
+bind-key g home
+bind-key d pagedown
+bind-key u pageup
+bind-key l open
+bind-key h quit
+bind-key a toggle-article-read
+bind-key n next-unread
+bind-key N prev-unread
+bind-key D pb-download
+bind-key U show-urls
+bind-key x pb-delete
+
+# Swap `reload` and `reload-all` because the latter is more useful.
+bind-key r reload-all
+bind-key R reload
+
+# Colors
+color listnormal cyan default
+color listfocus black yellow standout bold
+color listnormal_unread blue default
+color listfocus_unread yellow default bold
+color info red black bold
+color article cyan default
+
+highlight article "^Feed:.*" color5 color0
+highlight article "^Title:.*" color3 color0 bold
+highlight article "^Author:.*" color2 color0
+highlight article "^Date:.*" color223 color0
+highlight article "^Link:.*" color4 color0
+highlight article "^Flags:.*" color9 color0
+highlight article "\\[[0-9][0-9]*\\]" color66 default bold
+highlight article "\\[image [0-9][0-9]*\\]" color109 default bold
+highlight article "\\[embedded flash: [0-9][0-9]*\\]" color66 default bold
+
+
+# Full hd stream
+macro y set browser "mpv %u" ; open-in-browser ; set browser "w3m %u"
+# 480 quality Stream
+macro t set browser "mpv --ytdl-format='bestvideo[height<=?480]+bestaudio/best' %u" ; open-in-browser ; set browser "w3m %u"
+#macro t set browser "mpv --ytdl-format='bestvideo[height<=?480]+bestaudio/best' %u </dev/null &>/dev/null &" ; open-in-browser ; set browser "w3m %u"
+# Websites Reader
+macro w set browser "readable %u -p html-title,html-content | w3m -T text/html"; open-in-browser ; set browser "w3m %u"
+# Reddit TUI
+macro r set browser "tuir" ; open-in-browser; set browser "w3m %u"
+# Twitter TUI
+macro f set browser "turses" ; open-in-browser ; set browser "w3m %u"
+# Image preview
+macro i set browser "feh %u -." ; open-in-browser ; set browser "w3m %u" 
+# youtube to audio
+macro a set browser "cd ~/Music/audio && youtube-dl -x --audio-format mp3 %u" ; open-in-browser ; set browser "w3m %u"

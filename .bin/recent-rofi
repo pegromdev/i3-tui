@@ -1,0 +1,23 @@
+#!/bin/bash
+# recent-rofi
+# Script cobbled together by sleepyeyesvince to call up rofi to search in your recently opened files history.
+# You can then either open the file in the default application for that file type or in your favourite file manager.
+
+recent_result=$(awk -F "file://|\" " '/file:\/\// {print $2}' ~/.local/share/recently-used.xbel | \
+	sed 's/%20/ /g' | \
+	sed 's/\&amp;/\&/g' | \
+	sort -t: -k2,2nr | \
+	rofi -threads 0 -dmenu -i -p "recents")
+
+# The result of the above search will then be opened by the default application
+if [ -n "${recent_result}" ]; then
+	xdg-open "${recent_result}"
+	exit 0
+fi
+
+
+# Use the following instead if you would like to open your file manager to the result. Substitute nemo for your favourite file manager.
+#if [ -n "${recent_result}" ]; then
+	#nemo "${recent_result}"
+	#exit 0
+#fi

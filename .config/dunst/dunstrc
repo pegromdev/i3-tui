@@ -1,0 +1,84 @@
+# I3-TUI Contribute at https://github.com/pegromdev/i3-tui
+# maintainer: nicolas villafan <pegromdev@gmail.com>
+
+[global]
+    monitor = 0
+    follow = none
+    geometry = "300x5-30-30"
+    indicate_hidden = yes
+    shrink = no
+    transparency = 50
+    notification_height = 0
+    separator_height = 2
+    padding = 8
+    horizontal_padding = 8
+    frame_width = 1
+    frame_color = "#D99500"
+    separator_color = auto
+    sort = yes
+    idle_threshold = 120
+    font = Noto Sans Regular 11
+    line_height = 0
+    markup = yes
+    format = "<b>%s</b>\n%b"
+    alignment = left
+    show_age_threshold = 60
+    word_wrap = yes
+    ellipsize = middle
+    ignore_newline = no
+    stack_duplicates = true
+    hide_duplicate_count = false
+    show_indicators = yes
+    icon_position = left
+    max_icon_size = 32
+    icon_path = /usr/share/icons/Arc-X-D/16x16/status/:/usr/share/icons/Arc-X-D/16x16/devices/:/usr/share/icons/Arc-X-D/16x16/apps/:/usr/share/pixmaps/
+    sticky_history = yes
+    history_length = 20
+    dmenu = /usr/bin/dmenu -p dunst:
+    browser = /usr/bin/firefox -new-tab
+    always_run_script = true
+    title = Dunst
+    class = Dunst
+    startup_notification = false
+    verbosity = mesg
+    corner_radius = 0
+    force_xinerama = false
+    mouse_left_click = close_current
+    mouse_middle_click = do_action
+    mouse_right_click = close_all
+[experimental]
+    per_monitor_dpi = false
+
+[shortcuts]
+    close = ctrl+space
+    close_all = ctrl+shift+space
+    history = ctrl+grave
+    context = ctrl+shift+period
+
+[urgency_low]
+    # important: colors have to be defined in quotation marks.
+    # otherwise the "#" and following would be interpreted as a comment.
+    background = "#38434e"
+    foreground = "#bdacdf"
+    frame_color = "#66349b"
+    timeout = 5
+    # icon for notifications with low urgency, uncomment to enable
+    icon = /usr/share/icons/arc-x-d/status/16/dialog-information.png
+
+[urgency_normal]
+    background = "#38434e"
+    foreground = "#bdacdf"
+    frame_color = "#66349b"
+    timeout = 5
+    # icon for notifications with normal urgency, uncomment to enable
+    icon = /usr/share/icons/arc-x-d/status/16/dialog-question.png
+
+[urgency_critical]
+    background = "#38434e"
+    foreground = "#bdacdf"
+    frame_color = "#66349b"
+    timeout = 120
+    # icon for notifications with critical urgency, uncomment to enable
+    icon = /usr/share/icons/arc-x-d/status/16/dialog-warning.png
+# vim: ft=cfg
+
