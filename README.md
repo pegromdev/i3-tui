@@ -7,10 +7,12 @@ Terminal user interfaces over traditional GUI aprrouch.
 
 ## Install manually
 
-	`git clone https://github.com/pegromdev/i3-tui.git`
-	`cd i3-tui`
-	`bash i3-tui-install.sh`
- 
+```sh
+git clone https://github.com/pegromdev/i3-tui.git
+cd i3-tui
+bash i3-tui-install.sh
+```
+
 ## Get involved at our forum:
 https://forum.endeavouros.com/t/i3-tui
 
