@@ -1,3 +1,4 @@
+adobe-source-code-pro-fonts
 i3-gaps
 i3lock
 feh
@@ -7,4 +8,4 @@ dmenu
 rofi
 polybar
 zsh
-
+git 

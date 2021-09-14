@@ -8,8 +8,6 @@
 
 #: fonts {{{
 
-# Status bar fonts
-set $rustbar	Noto Sans Regular 10, FontAwesome 10
 # i3 enviroment fonts
 set $i3fonts	xft:Source-Code-Pro 9
 # In this example the variable call fot the Source-Code-Pro Font Above
@@ -22,6 +20,8 @@ font $i3fonts
 set $nsi 					--no-startup-id
 # Main terminal mod+return
 set $term					$TERMINAL
+# Kitty Terminal
+set $kitty 				kitty
 # Main I3 control Key ( Windows Key )
 set $mod 					Mod4
 # Secundary if needed, call it by using $sup+"Your custom Key" ( Alt Key )
@@ -38,18 +38,26 @@ set $mail 				$syncmail
 set $rofifont			"Noto Sans Regular 12"	
 # Fotns for boku, search, & recent
 set $rofifont2		"Noto Sans Regular 8"
-# Settings for theming apps individualy.
-# Mian Tui File Manager Used in Files workspace by default. mod+Ctrl+f
-set $ranger				kitty --override include=~/.config/i3/themes/ranger-theme.conf
-# Floating Terminal mod+Shift+return
-set $dropdown			kitty --class dropdown --override include=~/.config/kitty/ranger-theme.conf
-# Floating Always on demand neovim session Alt+retun
-set $vim				  kitty --class vimpad --override include=~/.config/kitty/ranger-theme.conf
-# Floating acces to cheatsheets mod+z 
-set $cheat				kitty --class cheatsheet --override include=~/.config/kitty/ranger-theme.conf
-# Floating Telegram client mod+t
-set $telegram			kitty --class social --override include=~/.config/kitty/ranger-theme.conf
 
+
+# Settings for theming apps individualy.
+# Keep your chossen apps with static themes by swithcin to Override
+
+# Mian Tui File Manager Used in Files workspace by default. mod+Ctrl+f
+#set $ranger		kitty --override include=~/.config/i3/themes/YourPreferTheme
+set $ranger		kitty 	
+# Floating Terminal mod+Shift+return
+#set $dropdown	 kitty --class dropdown --override include=~/.config/kitty/YourPreferTheme
+set $dropdown		kitty --class dropdown 
+# Floating Always on demand neovim session Alt+retun
+#set $vim				 kitty --class vimpad --override include=~/.config/kitty/YourPreferTheme
+set $vim				kitty --class vimpad 
+# Floating acces to cheatsheets mod+z
+#set $cheat		   kitty --class cheatsheet --override include=~/.config/kitty/YourPreferTheme
+set $cheat			kitty --class cheatsheet 
+# Floating Telegram client mod+t
+#set $telegram	 kitty --class social --override incluede=~/.config/kitty/YourPreferTheme
+set $telegram 	kitty --class social 
 #: }}}
 
 #: Modes {{{
@@ -202,7 +210,7 @@ set $mode__border Borders:  n(o)ne, (n)ormal, (t)title
 # i3tui first steps
 #exec $nsi $term -e w3m ~/i3tuiTips.html
 # Tmux
-exec $nsi	"sleep 3; $term -e tmux new-session -A -s Main"
+exec $nsi	"sleep 1; $term -e tmux new-session -A -s Main"
 # Dropdown Terminal
 exec $nsi $dropdown 	 
 # Vim server
@@ -212,7 +220,7 @@ exec $nsi $telegram -e tg
 # Cheatsheets
 exec $nsi $cheat -e cht.sh --shell
 # Ranger
-exec $nsi	$ranger --class ranger -e ranger
+exec $nsi	"sleep 3; $ranger --class ranger -e ranger"
 # Polkit
 exec $nsi /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # Wallpaper
@@ -224,6 +232,8 @@ exec $nsi feh --bg-scale ~/.config/wall.png
 exec $nsi clipit
 # I3 Lock
 exec $nsi xautolock -time 30 -locker blurlock
+# Polybar 
+exec_always $nsi polybarLaunch
 # Keyboard Keys custom changes
 exec_always $nsi	remaps
 # Mutt wizard sync
@@ -236,35 +246,44 @@ exec --no-startup-id dbus-launch dunst --config ~/.config/dunst/dunstrc
 #: Start i3bar to display a workspace bar (plus the system information i3status if available) {{{
 bar {
 
-	i3bar_command i3bar 
-	position top
-#	i3bar_command i3bar --transparency
+#bar {
 
-# Rust status
-	status_command /usr/bin/i3status-rs ~/.config/i3/status.toml
-  font pango: $rustbar 
+#	i3bar_command i3bar 
+#	position top
+#	colors {
 
-	colors {
+#set_from_resource $barbackground 		background
+#set_from_resource $barforeground 		foreground
+#set_from_resource $barcolor0     		color0
+#set_from_resource $barcolor1     	 	color1
+#set_from_resource $barcolor2     	 	color2
+#set_from_resource $barcolor3     	 	color3
+#set_from_resource $barcolor4     	 	color4
+#set_from_resource $barcolor5     	 	color5
+#set_from_resource $barcolor6     	 	color6
+#set_from_resource $barcolor7     	 	color7
 
-# EndevearousOS Purple
-set $i3bar1 #404552
-set $i3bar2 #222222
-set $i3bar3	#BDACDF
-set $i3bar4 #ffffff
-set $i3bar5 #333333
-set $i3bar6 #7E3EBD
-set $i3bar7 #FD7E7E
-set $i3bar8 #7E7EFD
+# i3bar , statusline, desktop Colors
+# If you like to use your custom color edit next Variables and uncomment set_from_resource colors:
 
-				separator $i3bar2
-        background $i3bar1
-        statusline $i3bar1
-				                    #Border  Back     Text 
-        focused_workspace 	$i3bar3 $i3bar6 $i3bar4
-        active_workspace 		$i3bar3 $i3bar5 $i3bar4              # 
-        inactive_workspace 	$i3bar5 $i3bar1 $i3bar3
-        urgent_workspace 		$i3bar7 $i3bar8 $i3bar2
-    }
+#set $i3bar1 #404552
+#set $i3bar2 #222222
+#set $i3bar3	#BDACDF
+#set $i3bar4 #ffffff
+#set $i3bar5 #333333
+#set $i3bar6 #7E3EBD
+#set $i3bar7 #FD7E7E
+#set $i3bar8 #7E7EFD
+
+#				separator 	$barcolor0
+#        background 	$barbackground
+#        statusline 	$barforeground
+#				                    #Border 		 	Back     				Text 
+#        focused_workspace 	$ibarcolor1 	$barcolor4 			$barforeground
+#        active_workspace 		$barcolor0 		$barcolor6 			$barforegound     
+#        inactive_workspace 	$barcolor0 		$barbackground 	$barforeground
+#        urgent_workspace 		$barcolor0 		$barcolor7 			$barcolor0
+#   }
 
 ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
 tray_output primary
@@ -294,7 +313,7 @@ bindsym $mod+F3					exec $nsi displayselect
 # Bluetooth
 bindsym $mod+Shift+F3		exec $nsi $blue
 # Newsboat
-bindsym $mod+F4					exec $nsi $tuitenm --class newsboat -e newslauncher
+bindsym $mod+F4					exec $nsi $term --class newsboat -e newslauncher
 # Refresh network
 bindsym $mod+F5					exec $nsi $netrefresh && notify-send "Refreshing Network"
 # Toogle tochpad
@@ -329,7 +348,7 @@ bindsym XF86PowerOff									exec $nsi prompt "Shutdown computer?" "$shutdown"
 # Web
 bindsym XF86HomePage									exec $nsi $BROWSER 
 # Mail
-bindsym XF86Mail											exec $term -e "neomuut"
+bindsym XF86Mail											exec $term 
 # Touchpad
 bindsym XF86TouchpadToggle						exec $nsi toggletouchpad
 # Screen brightness controls
@@ -664,6 +683,12 @@ for_window [class="gl"]								move position center
 # Firefox Downloads
 for_window [title="Places"] 					floating enable border pixel 1
 for_window [title="Places"] 					move position center
+# Pulsemixer
+for_window [class="pulsemixer"]					floating enable
+for_window [class="pulsemixer"]					border pixel 1
+for_window [class="pulsemixer"]					resize set 800 250 
+for_window [class="pulsemixer"]					move position 550 30
+for_window [class="pulsemixer"] 				sticky enable
 
 ##### For Title
 
@@ -718,50 +743,36 @@ for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
 #: Theme {{{
 # Color palette used for the terminal ( ~/.Xresources file )
 
-set_from_resource $term_background background
-set_from_resource $term_foreground foreground
-set_from_resource $term_color0     color0
-set_from_resource $term_color1     color1
-set_from_resource $term_color2     color2
-set_from_resource $term_color3     color3
-set_from_resource $term_color4     color4
-set_from_resource $term_color5     color5
-set_from_resource $term_color6     color6
-set_from_resource $term_color7     color7
-set_from_resource $term_color8     color8
-set_from_resource $term_color9     color9
-set_from_resource $term_color10    color10
-set_from_resource $term_color11    color11
-set_from_resource $term_color12    color12
-set_from_resource $term_color13    color13
-set_from_resource $term_color14    color14
-set_from_resource $term_color12    color12
-set_from_resource $term_color13    color13
-set_from_resource $term_color14    color14
-set_from_resource $term_color15    color15
+set_from_resource $i3background background
+set_from_resource $i3foreground foreground
+set_from_resource $i3color0     color0
+set_from_resource $i3color1     	 color1
+set_from_resource $i3color2     	 color2
+set_from_resource $i3color3     	 color3
+set_from_resource $i3color4     	 color4
+set_from_resource $i3color5     	 color5
+set_from_resource $i3color6     	 color6
+set_from_resource $i3color7     	 color7
 
 # i3wm title, borders, desktop Colors
-# EndevearousOS Purple
-set $i3color1		#BDACDF
-set $i3color2		#ffffff
-set $i3color3		#FDF6E3
-set $i3color4		#7E3EBD
-set $i3color5		#454948
-set $i3color6		#404552 
-set $i3color7 	#cc241d
-set $i3color8		#504945
-set $i3color9 	#268BD2
-set $i3color10 	#000000
-set $i3color11 	#0c0c0c
-set $i3color12	#ffffff
+# If you like to use your custom color edit next Variables and uncomment set_from_resource colors:
 
+#set $i3background		#000000
+#set $i3foreground 		#ffffff
+#set $i3color1				#BDACDF
+#set $i3color2				#0c0c0c
+#set $i3color3				#FDF6E3
+#set $i3color4				#7E3EBD
+#set $i3color5				#454948
+#set $i3color6				#268BD2 
+#set $i3color7 				#cc241d
 
 # class                   border  		backgr. 		text    		indic.   				child_border
-  client.focused          $i3color4 	$i3color4 	$i3color2		$i3color3  
-  client.focused_inactive $i3color1 	$i3color1 	$i3color4 	$i3color5
-  client.unfocused        $i3color6 	$i3color6		$i3color2 	$i3color5
-  client.urgent           $i3color7 	$i3color7 	$i3color8 	$i3color9
-  client.placeholder      $i3color10 	$i3color11	$i3color12	$i3color10
+  client.focused          $i3color4 	$i3color4 	$i3color0		$i3color1  
+  client.focused_inactive $i3color1 	$i3color1 	$i3color0 	$i3color6
+  client.unfocused        $i3color6 	$i3color6		$i3color0 	$i3color7
+  client.urgent           $i3color7 	$i3color7 	$i3color0 	$i3color3
+  client.placeholder      $i3color3 	$i3color3		$i3color0		$i3color4
 
 #  client.background       #2B2C2B
 

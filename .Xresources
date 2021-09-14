@@ -1,0 +1,30 @@
+Xft.dpi:       96
+Xft.antialias: true
+Xft.hinting:   true
+Xft.rgba:      rgb
+Xft.autohint:  false
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+
+XTerm*background:				#282828
+XTerm*foreground:        #ebdbb2
+XTerm*pointerColor:      #1ABB9B
+XTerm*faceName:          Fixed
+XTerm*faceSize:          11
+XTerm*reverseVideo:      on
+XTerm*selectToClipboard: true
+
+! Black color that will not be affected by bold highlighting.
+*.color66: #32302f
+*color66:  #32302f
+
+! Xclock colors.
+XClock*foreground: #d5c4a1
+XClock*background: #32302f
+XClock*majorColor:  rgba:fb/f1/c7/ff
+XClock*minorColor:  rgba:fb/f1/c7/ff
+XClock*hourColor:   rgba:fb/f1/c7/ff
+XClock*minuteColor: rgba:fb/f1/c7/ff
+XClock*secondColor: rgba:fb/f1/c7/ff
+
+

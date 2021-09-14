@@ -9,7 +9,7 @@ export TERMINAL="kitty"
 export BROWSER=""
 export READER="zathura"
 export FILE="ranger"
-export TERMINALTHEME="Ubuntu"
+
 
 #Fuzzy Finder with fd colored folders, hideen files and not git directories. 
 
