@@ -13,4 +13,4 @@ mkdir ~/.bin
 cp -R .bin/* ~/.bin/
 echo '#include "/home/'$USER'/.config/i3/currenti3theme"' >> ~/.Xresources
 chmod -R +x ~/.bin/
-sudo pacman -Syu --needed --noconfirm - < packages-repository.txt
+sudo pacman -Syu --needed --noconfirm < packages-repository.txt
