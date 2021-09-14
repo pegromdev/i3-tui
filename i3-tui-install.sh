@@ -8,6 +8,7 @@
 cp -R .config/* ~/.config/
 cp .zprofile ~/.zprofile
 cp .Xresources ~/.Xresources
+mkdir ~/.bin
 cp -R .bin/* ~/.bin/
 echo '#include "/home/'$USER'/.config/i3/currenti3theme"' >> ~/.Xresources
 chmod -R +x ~/.bin/
