@@ -9,3 +9,6 @@ rofi
 polybar
 zsh
 git 
+tmux
+ranger
+

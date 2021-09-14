@@ -7,6 +7,7 @@
 
 cp -R .config/* ~/.config/
 cp .zprofile ~/.zprofile
+cp .xinitrc ~/.xinitrc
 cp .Xresources ~/.Xresources
 mkdir ~/.bin
 cp -R .bin/* ~/.bin/
