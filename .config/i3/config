@@ -295,11 +295,6 @@ bindsym $mod+g		gaps inner current set 8; gaps outer current set 4
 
 #: }}}
 
-
-
-
-
-
 #: Windows Settings {{{
 
 #: Instances {{{
