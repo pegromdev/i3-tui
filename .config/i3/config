@@ -11,8 +11,8 @@
 # i3 enviroment fonts
 set $i3fonts	xft:Source-Code-Pro 9
 # In this example the variable call fot the Source-Code-Pro Font Above
-
 font $i3fonts
+
 #: }}}
 
 #: Global Definitions {{{
@@ -210,41 +210,41 @@ set $mode__border Borders:  n(o)ne, (n)ormal, (t)title
 # i3tui first steps
 #exec $nsi $term -e w3m ~/i3tuiTips.html
 # Tmux
-exec $nsi	"sleep 1; $term -e tmux new-session -A -s Main"
+#exec $nsi	"sleep 1; $term -e tmux new-session -A -s Main"
 # Dropdown Terminal
 exec $nsi $dropdown 	 
 # Vim server
-exec $nsi $vim -e nvim  	 
+#exec $nsi $vim -e nvim  	 
 # tg
-exec $nsi $telegram -e tg
+#exec $nsi $telegram -e tg
 # Cheatsheets
-exec $nsi $cheat -e cht.sh --shell
+#exec $nsi $cheat -e cht.sh --shell
 # Ranger
-exec $nsi	"sleep 3; $ranger --class ranger -e ranger"
+#exec $nsi	"sleep 3; $ranger --class ranger -e ranger"
 # Polkit
-exec $nsi /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+#exec $nsi /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # Wallpaper
 exec $nsi feh --bg-scale ~/.config/wall.png
 # Uncomemnt bottom line to activate picom compositor when system starts.
 # Compositor
 #exec $nsi picom --experimental-backends --config .config/picom.conf -b && notify-send "Picom Started"
 # clipboard Manager
-exec $nsi clipit
+#exec $nsi clipit
 # I3 Lock
-exec $nsi xautolock -time 30 -locker blurlock
+#exec $nsi xautolock -time 30 -locker blurlock
 # Polybar 
 exec_always $nsi polybarLaunch
 # Keyboard Keys custom changes
 exec_always $nsi	remaps
 # Mutt wizard sync
-exec $nsi mw -Y && notify-send "Mail Sync done!"
+#exec $nsi mw -Y && notify-send "Mail Sync done!"
 # Desktop notifications
-exec --no-startup-id dbus-launch dunst --config ~/.config/dunst/dunstrc
+#exec --no-startup-id dbus-launch dunst --config ~/.config/dunst/dunstrc
 
 #: }}}
 
 #: Start i3bar to display a workspace bar (plus the system information i3status if available) {{{
-bar {
+#bar {
 
 #bar {
 
@@ -286,14 +286,14 @@ bar {
 #   }
 
 ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
-tray_output primary
+#tray_output primary
 # tray_output LDVS-1
 
-	bindsym button4 nop
-	bindsym button5 nop
+#	bindsym button4 nop
+#	bindsym button5 nop
 
-	strip_workspace_numbers yes
-}
+#	strip_workspace_numbers yes
+#	}
 #:}}}
 
 #: Bindings {{{
