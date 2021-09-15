@@ -3,11 +3,9 @@
 # Systemd
 export XDG_RUNTIME_DIR=/run/user/`id -u`
 # Adds `~/.scripts` and all subdirectories to $PATH
-export PATH="$PATH:$(du "$HOME/.bin/""$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
+export PATH="$PATH:$(du "$HOME/.bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 export EDITOR="nvim" 
 export TERMINAL="kitty"
-export BROWSER=""
-export READER="zathura"
 export FILE="ranger"
 
 
@@ -20,7 +18,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x i3 >/dev/null && exec startx
 
 # Switch escape and caps if tty:
-sudo -n loadkeys ~/.scripts/ttymaps.kmap 2>/dev/null
+sudo -n loadkeys ~/.bin/ttymaps.kmap 2>/dev/null
 
 # Colored Man Pages
 man() {

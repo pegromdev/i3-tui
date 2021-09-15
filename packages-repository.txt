@@ -11,4 +11,6 @@ zsh
 tmux
 ranger
 neovim
+ranger
+dunst	
 
