@@ -11,5 +11,5 @@ zsh
 git 
 tmux
 ranger
-nvim
+neovim
 
