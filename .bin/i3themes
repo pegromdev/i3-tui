@@ -1,0 +1,49 @@
+#! /bin/bash
+
+# FZF Theme Picker
+THEMEPICKED="$(ls /home/$USER/.config/i3/themes/  | fzf --no-multi)"
+# Xresources colors Themes Location
+THEMELOC="/home/$USER/.config/i3/themes/"
+# Copy chossen Theme file Destination path
+THEMEDEST="/home/$USER/.config/i3/"
+# Full theme path to be executed to swicth i3, polybar, dmenu & Rofi.
+THEMETOLOAD="$THEMELOC$THEMEPICKED"
+# Create a Temporary file to be modified with sed to work with kitty
+#echo $THEMEPICKED >> /tmp/$THEMEPICKED.txt
+# Chage content format to be kitty compatible
+#sed -i 's/_/\\ /' /tmp/$THEMEPICKED.txt 
+# Create a Variable to be use inside kitty thehe changer command
+KITTYTHEME="$(head -n 1 $THEMETOLOAD)"
+#KITTYTHEME="$(cat /tmp/$THEMEPICKED.txt)"
+# If i3 Purple is picket slelect kitty Adventure\ Time
+if [ "$THEMEPICKED" = "i3_Tui_Purple" ]; then
+	kitty +kitten themes --reload-in all Adventure\ Time
+else
+ kitty +kitten themes --reload-in all $KITTYTHEME 
+fi
+
+\cp $THEMETOLOAD ${THEMEDEST}currenti3theme
+sed -i '1d' /home/niko/.config/i3/currenti3theme
+xrdb ~/.Xresources
+i3-msg -q reload
+i3-msg -q restart
+
+#rm /tmp/$THEMEPICKED.txt
+
+#	sed -i 's/_/\\ /' /tmp/test.txt
+#	cat /tmp/test.txt 
+#	sed -i 's/_/\\ /' /tmp/test.txt
+#	cat /tmp/test.txt
+#	exit 0
+
+
+#function themeswicth {
+#	i3theme
+#	kittytheme
+#}
+
+#themeswicth
+#ls /home/niko/.config/i3/themes/  | fzf | i3theme
+
+
+
