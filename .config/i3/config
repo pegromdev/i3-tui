@@ -27,6 +27,10 @@ set $rofifont			"Noto Sans Regular 12"
 # Fotns for boku, search, & recent
 set $rofifont2		"Noto Sans Regular 8"
 
+set $ranger		kitty 	
+# Floating Terminal mod+Shift+return
+#set $dropdown	 kitty --class dropdown --override include=~/.config/kitty/YourPreferTheme
+set $dropdown		kitty --class dropdown 
 #: }}}
 
 #: Modes {{{
