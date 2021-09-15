@@ -25,6 +25,7 @@ rm ~/.Xresources
 rm /etc/X11/xorg.conf 
 rm ~/.profile
 rm ~/.bash_profile
+rm ~/.fehbg
 
 echo "###########################################"
 echo "_________Restoring sttings...______________"
