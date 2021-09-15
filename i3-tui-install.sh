@@ -14,6 +14,6 @@ cp .Xresources ~/.Xresources
 cp /root/xorg.conf /etc/X11/xorg.conf 
 echo '#include "/home/'$USER'/.config/i3/currenti3theme"' >> ~/.Xresources
 chmod -R +x ~/.bin/
-sudo pacman -Syu --needed --noconfirm -- < packages-repository.txt
+cat packages-repository.txt | xargs sudo pacman -S --noconfirm 
 fc-cache -f -v
 
